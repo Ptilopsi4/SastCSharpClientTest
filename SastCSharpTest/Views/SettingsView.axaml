@@ -1,0 +1,112 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:SastCSharpTest.ViewModels"
+             x:Class="SastCSharpTest.Views.SettingsView"
+             x:DataType="vm:SettingsViewModel"
+             Background="Transparent">
+
+    <UserControl.Styles>
+
+        <Style Selector=":is(UserControl).LightTheme Border.themeBorder">
+            <Setter Property="Background" Value="{DynamicResource SystemControlBackgroundAltHighBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource SystemControlBackgroundListLowBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BoxShadow" Value="0 2 8 0 #15000000" />
+        </Style>
+        
+        <Style Selector=":is(UserControl).LightTheme TextBlock.heading">
+            <Setter Property="Foreground" Value="{DynamicResource SystemControlForegroundBaseHighBrush}" />
+        </Style>
+        
+        <Style Selector=":is(UserControl).LightTheme TextBlock.caption">
+            <Setter Property="Foreground" Value="{DynamicResource SystemControlForegroundBaseMediumBrush}" />
+        </Style>
+        
+        <Style Selector=":is(UserControl).LightTheme Button">
+            <Setter Property="Background" Value="Transparent" />
+        </Style>
+        
+        <Style Selector=":is(UserControl).DarkTheme Border.themeBorder">
+            <Setter Property="Background" Value="{DynamicResource SystemControlBackgroundAltMediumLowBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource SystemControlBackgroundListLowBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BoxShadow" Value="0 2 8 0 #40000000" />
+        </Style>
+        
+        <Style Selector=":is(UserControl).DarkTheme TextBlock.heading">
+            <Setter Property="Foreground" Value="{DynamicResource SystemControlForegroundBaseHighBrush}" />
+        </Style>
+        
+        <Style Selector=":is(UserControl).DarkTheme TextBlock.caption">
+            <Setter Property="Foreground" Value="{DynamicResource SystemControlForegroundBaseMediumBrush}" />
+        </Style>
+        
+        <Style Selector=":is(UserControl).DarkTheme Button">
+            <Setter Property="Background" Value="Transparent" />
+        </Style>
+        
+        <Style Selector="TextBlock.heading">
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Margin" Value="0,0,0,8" />
+        </Style>
+        
+        <Style Selector="TextBlock.sectionHeading">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+        </Style>
+        
+        <Style Selector="TextBlock.caption">
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="Opacity" Value="0.9" />
+        </Style>
+    </UserControl.Styles>
+	
+    <Border Padding="36,40">
+        <Grid MaxWidth="1200">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <ScrollViewer Grid.Row="1">
+                <StackPanel Spacing="16">
+                    <TextBlock Text="外观" Classes="heading" />
+                    <Border CornerRadius="8"
+                            Padding="16"
+                            Margin="0,0,0,8"
+                            Classes="themeBorder">
+                        <StackPanel Spacing="8">
+                            <StackPanel Orientation="Horizontal" Spacing="8" VerticalAlignment="Center">
+                                <TextBlock Text="🎨" FontSize="20" VerticalAlignment="Center"/>
+                                <TextBlock Text="应用主题" Classes="sectionHeading"/>
+                            </StackPanel>
+                            <TextBlock Text="选择应用亮色/暗色主题" Classes="caption"/>
+                            <ComboBox Width="200"
+                                      Margin="0,8,0,0"
+                                      ItemsSource="{Binding Themes}"
+                                      SelectedItem="{Binding SelectedTheme, Mode=TwoWay}"/>
+                        </StackPanel>
+                    </Border>
+
+                    <TextBlock Text="更多信息" Classes="heading" Margin="0,16,0,8"/>
+                    <Border CornerRadius="8"
+                            Padding="16"
+                            Margin="0,0,0,8"
+                            Classes="themeBorder">
+                        <Button HorizontalAlignment="Stretch"
+                                Command="{Binding HelpCommand}">
+                            <StackPanel Orientation="Horizontal" Spacing="8" VerticalAlignment="Center">
+                                <TextBlock Text="❔" FontSize="20" VerticalAlignment="Center"/>
+                                <StackPanel>
+                                    <TextBlock Text="需要帮助？" Classes="sectionHeading"/>
+                                    <TextBlock Text="戳我了解更多->" Classes="caption"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Button>
+                    </Border>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Border>
+</UserControl>

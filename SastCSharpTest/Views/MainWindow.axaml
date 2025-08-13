@@ -1,0 +1,103 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:SastCSharpTest.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="clr-namespace:SastCSharpTest.Controls"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="SastCSharpTest.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Background="Transparent"
+        TransparencyLevelHint="AcrylicBlur"
+        Icon="avares://SastCSharpTest/Assets/StoreLogo.scale-200.png"
+        Title="SastCSharpTest"
+        ExtendClientAreaToDecorationsHint="True"
+        ExtendClientAreaChromeHints="NoChrome">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+			<RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+		<controls:AppTitleBar x:Name="TitleBar1" Grid.Row="0" ZIndex="1" />
+
+        <DockPanel Grid.Row="1" ZIndex="0">
+			<Border DockPanel.Dock="Left"
+                    Width="200"
+                    BorderBrush="{DynamicResource SystemControlForegroundBaseMediumLowBrush}"
+                    BorderThickness="0,0,1,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0"
+                                Background="Transparent">
+                        <Button x:Name="WelcomeButton"
+                                Content="🎉 欢迎！"
+                                Classes="MenuButton"
+                                HorizontalAlignment="Stretch"
+                                HorizontalContentAlignment="Left"
+                                Padding="20,15"
+                                Margin="5"
+                                Click="NavigationButton_Click"
+                                Tag="WelcomeView" />
+
+                        <Button x:Name="FriendButton"
+                                Content="🦊 动物朋友"
+                                Classes="MenuButton"
+                                HorizontalAlignment="Stretch"
+                                HorizontalContentAlignment="Left"
+                                Padding="20,15"
+                                Margin="5"
+                                Click="NavigationButton_Click"
+                                Tag="FriendView" />
+                    </StackPanel>
+
+                    <!-- 占位 -->
+                    <StackPanel Grid.Row="1"/>
+
+                    <Button x:Name="SettingsButton"
+                            Content="⚙️ Settings"
+                            Classes="MenuButton"
+                            Grid.Row="2"
+                            HorizontalAlignment="Stretch"
+                            HorizontalContentAlignment="Left"
+                            Padding="20,15"
+                            Margin="5,5,5,10"
+                            Click="NavigationButton_Click"
+                            Tag="SettingsView" />
+                </Grid>
+            </Border>
+
+            <ContentControl x:Name="ContentFrame" 
+                           DockPanel.Dock="Right">
+            </ContentControl>
+        </DockPanel>
+    </Grid>
+
+    <Window.Styles>
+        <Style Selector="Button.MenuButton">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="CornerRadius" Value="4" />
+        </Style>
+        
+        <Style Selector="Button.MenuButton:pointerover">
+            <Setter Property="Background" Value="{DynamicResource SystemControlBackgroundListLowBrush}" />
+        </Style>
+        
+        <Style Selector="Button.MenuButton:pressed">
+            <Setter Property="Background" Value="{DynamicResource SystemControlBackgroundListMediumBrush}" />
+        </Style>
+    </Window.Styles>
+</Window>

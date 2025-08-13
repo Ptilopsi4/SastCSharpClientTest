@@ -1,0 +1,91 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="SastCSharpTest.Controls.LargeButton"
+             DataContext="{Binding RelativeSource={RelativeSource Self}}">
+
+    <UserControl.Styles>
+        <Style Selector="TextBlock.BodyTextBlockStyle">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="LineHeight" Value="22"/>
+        </Style>
+
+        <Style Selector="TextBlock.CaptionTextBlockStyle">
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="Opacity" Value="0.85"/>
+            <Setter Property="LineHeight" Value="18"/>
+        </Style>
+
+        <!-- 浅色主题样式 -->
+        <Style Selector=":is(Button).LightTheme">
+            <Setter Property="Background" Value="{DynamicResource SystemControlBackgroundAltHighBrush}"/>
+            <Setter Property="Foreground" Value="{DynamicResource SystemControlForegroundBaseHighBrush}"/>
+        </Style>
+        
+        <Style Selector=":is(Button).LightTheme:pointerover">
+            <Setter Property="Background" Value="{DynamicResource SystemControlBackgroundListLowBrush}"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+        
+        <Style Selector=":is(Button).LightTheme:pressed">
+            <Setter Property="Background" Value="{DynamicResource SystemControlBackgroundListMediumBrush}"/>
+        </Style>
+
+        <!-- 深色主题样式 -->
+        <Style Selector=":is(Button).DarkTheme">
+            <Setter Property="Background" Value="{DynamicResource SystemControlBackgroundAltMediumLowBrush}"/>
+            <Setter Property="Foreground" Value="{DynamicResource SystemControlForegroundBaseHighBrush}"/>
+        </Style>
+        
+        <Style Selector=":is(Button).DarkTheme:pointerover">
+            <Setter Property="Background" Value="{DynamicResource SystemControlBackgroundListLowBrush}"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+        
+        <Style Selector=":is(Button).DarkTheme:pressed">
+            <Setter Property="Background" Value="{DynamicResource SystemControlBackgroundListMediumBrush}"/>
+        </Style>
+    </UserControl.Styles>
+
+    <Border CornerRadius="8">
+        <Button
+            HorizontalAlignment="Left"
+            VerticalAlignment="Stretch"
+            HorizontalContentAlignment="Stretch"
+            VerticalContentAlignment="Stretch"
+            Click="Button_Click"
+            Name="MainButton"
+            CornerRadius="8">
+            <Border Padding="24,20">
+                <Grid VerticalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="56" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <ContentPresenter Grid.Column="0"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Left"
+                                    Content="{Binding Icon}" />
+
+                    <StackPanel Grid.Column="1"
+                              Orientation="Vertical"
+                              Spacing="6"
+                              Margin="4,0,0,0">
+                        <TextBlock x:Name="TitleText"
+                                 Foreground="{DynamicResource SystemControlForegroundBaseHighBrush}"
+                                 Classes="BodyTextBlockStyle"
+                                 Text="{Binding MainTitle}" />
+                        <TextBlock Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}"
+                                 Classes="CaptionTextBlockStyle"
+                                 Text="{Binding SubTitle}" />
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Button>
+    </Border>
+</UserControl>

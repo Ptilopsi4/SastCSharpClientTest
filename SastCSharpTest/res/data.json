@@ -1,0 +1,26 @@
+[
+  {
+    "Id": 1,
+    "Name": "Serval",
+    "Description": "A kind of cat",
+    "ImgUrl": "res/Serval.png"
+  },
+  {
+    "Id": 2,
+    "Name": "Fennec",
+    "Description": "A kind of fox",
+    "ImgUrl": "res/Fennec.png"
+  },
+  {
+    "Id": 3,
+    "Name": "Egret",
+    "Description": "A kind of bird",
+    "ImgUrl": "res/Egret.jpg"
+  },
+  {
+    "Id": 4,
+    "Name": "Black Manba",
+    "Description": "A kind of snake",
+    "ImgUrl": "res/Black mamba.png"
+  }
+]

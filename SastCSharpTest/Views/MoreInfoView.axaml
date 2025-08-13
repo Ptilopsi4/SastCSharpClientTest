@@ -1,0 +1,74 @@
+<UserControl
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+    x:Class="SastCSharpTest.Views.MoreInfoView"
+    Background="Transparent">
+
+	<Grid
+        MaxWidth="1200"
+        Margin="36,40">
+
+		<ScrollViewer VerticalScrollBarVisibility="Auto">
+			<StackPanel>
+				<StackPanel Margin="0,32,0,24">
+					<TextBlock
+                        Text="参考资料"
+                        FontSize="24"
+                        FontWeight="Light"
+                        Margin="0,0,0,24"/>
+
+						<TextBlock 
+							Margin="0,0,0,8"
+                            Tapped="InputElement_OnTapped"
+                            Tag="https://docs.avaloniaui.net/docs/Welcome">
+							<Run Text="Avalonia官方文档"
+								 Foreground="DodgerBlue"
+								 FontSize="15"/>
+						</TextBlock>
+
+					<TextBlock
+                        Text="C#组全体成员联系方式"
+                        FontSize="24"
+                        FontWeight="Light"
+                        Margin="0,32,0,24"/>
+
+					<StackPanel Margin="0,0,0,8">
+						<TextBlock>
+							<Run Text="Ptilopsis"/>
+							<Run Text="QQ: 1405469851" FontWeight="Bold"/>
+						</TextBlock>
+					</StackPanel>
+
+					<StackPanel Margin="0,0,0,8">
+						<TextBlock>
+							<Run Text="Futurefe"/>
+							<Run Text="QQ: 2670708587" FontWeight="Bold"/>
+						</TextBlock>
+					</StackPanel>
+
+					<StackPanel Margin="0,0,0,8">
+						<TextBlock Text="记得加入C#组招新群哦🥰"/>
+					</StackPanel>
+				</StackPanel>
+
+				<StackPanel Orientation="Horizontal">
+					<Image
+                        Source="/Assets/9011267.png"
+                        HorizontalAlignment="Left"
+                        Margin="10,50"
+                        Height="400"
+                        Width="300" />
+					<Image
+                        Source="/Assets/qrcode_1753593077643.jpg"
+						HorizontalAlignment="Left"
+						Margin="10,50"
+						Height="600"
+						Width="450" />
+					</StackPanel>
+			</StackPanel>
+		</ScrollViewer>
+	</Grid>
+</UserControl>
