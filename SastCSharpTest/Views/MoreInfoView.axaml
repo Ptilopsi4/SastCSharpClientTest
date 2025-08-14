@@ -24,10 +24,33 @@
 							Margin="0,0,0,8"
                             Tapped="InputElement_OnTapped"
                             Tag="https://docs.avaloniaui.net/docs/Welcome">
+                            <TextBlock.Styles>
+                                <Style Selector="TextBlock:pointerover">
+                                    <Setter Property="Cursor" Value="Hand"/>
+                                    <Setter Property="Foreground" Value="OrangeRed"/>
+                                    <Setter Property="TextDecorations" Value="Baseline"/>
+                                </Style>
+                            </TextBlock.Styles>
 							<Run Text="Avalonia官方文档"
 								 Foreground="DodgerBlue"
 								 FontSize="15"/>
 						</TextBlock>
+
+					<TextBlock
+						Margin="0,0,0,8"
+						Tapped="InputElement_OnTapped"
+						Tag="https://njupt-sast.feishu.cn/wiki/JpR6weWPriWfiekYfFPcTl7Rnog">
+						<TextBlock.Styles>
+							<Style Selector="TextBlock:pointerover">
+								<Setter Property="Cursor" Value="Hand"/>
+								<Setter Property="Foreground" Value="OrangeRed"/>
+								<Setter Property="TextDecorations" Value="Underline"/>
+							</Style>
+						</TextBlock.Styles>
+						<Run Text="免试题指南"
+							 Foreground="DodgerBlue"
+							 FontSize="15"/>
+					</TextBlock>
 
 					<TextBlock
                         Text="C#组全体成员联系方式"
