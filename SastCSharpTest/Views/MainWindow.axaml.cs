@@ -20,7 +20,16 @@ namespace SastCSharpTest.Views
 
         public void UpdateNavigationButtonsColor()
         {
-            Color textColor = ThemeHelper.IsDarkTheme() ? Colors.White : Colors.Black;
+            Color textColor;
+            
+            if (ThemeHelper.IsAcrylicMode)
+            {
+                textColor = Colors.White;
+            }
+            else
+            {
+                textColor = ThemeHelper.IsDarkTheme() ? Colors.White : Colors.Black;
+            }
 
             if (WelcomeButton != null)
                 WelcomeButton.Foreground = new SolidColorBrush(textColor);

@@ -192,8 +192,19 @@ public static class ThemeHelper
         if (AppWindow is MainWindow mainWindow)
         {
             mainWindow.Background = Avalonia.Media.Brushes.Transparent;
+            
+            var textColor = Avalonia.Media.Colors.White;
+            mainWindow.Foreground = new Avalonia.Media.SolidColorBrush(textColor);
+            
+            if (mainWindow.WelcomeButton != null)
+                mainWindow.WelcomeButton.Foreground = new Avalonia.Media.SolidColorBrush(textColor);
 
-            var textColor = IsDarkTheme() ? Avalonia.Media.Colors.White : Avalonia.Media.Colors.Black;
+            if (mainWindow.FriendButton != null)
+                mainWindow.FriendButton.Foreground = new Avalonia.Media.SolidColorBrush(textColor);
+
+            if (mainWindow.SettingsButton != null)
+                mainWindow.SettingsButton.Foreground = new Avalonia.Media.SolidColorBrush(textColor);
+        
             mainWindow.UpdateNavigationButtonsColor();
         }
     }

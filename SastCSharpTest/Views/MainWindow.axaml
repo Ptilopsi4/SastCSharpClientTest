@@ -6,7 +6,6 @@
         xmlns:controls="clr-namespace:SastCSharpTest.Controls"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="SastCSharpTest.Views.MainWindow"
-        x:DataType="vm:MainWindowViewModel"
         Background="Transparent"
         TransparencyLevelHint="AcrylicBlur"
         Icon="avares://SastCSharpTest/Assets/StoreLogo.scale-200.png"

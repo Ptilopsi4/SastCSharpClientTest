@@ -3,6 +3,7 @@ using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using Avalonia.Media.Imaging;
+using Avalonia.Styling;
 using Avalonia.Threading;
 using Avalonia.VisualTree;
 using Newtonsoft.Json;
@@ -31,6 +32,15 @@ namespace SastCSharpTest.Views
         private void InitializeComponent()
         {
             AvaloniaXamlLoader.Load(this);
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            var animationStyles = Resources["AnimationStyles"] as Styles;
+            if (animationStyles != null)
+            {
+                Styles.Add(animationStyles);
+            }
         }
 
         private void SetComboBox()
@@ -78,7 +88,7 @@ namespace SastCSharpTest.Views
 
         /*
          *
-         * ÊÂ¼þ´¦Àíº¯Êý
+         * äº‹ä»¶å¤„ç†å‡½æ•°
          *
          */
 
@@ -100,7 +110,7 @@ namespace SastCSharpTest.Views
             editButton.IsVisible = true;
             SetTextBoxEnabled(false);
 
-            // ¹¹½¨Í¼ÏñÂ·¾¶²¢¼ÓÔØ
+            // æž„å»ºå›¾åƒè·¯å¾„å¹¶åŠ è½½
             string imagePath = Path.Combine(
                 AppDomain.CurrentDomain.BaseDirectory,
                 friend.ImgUrl
@@ -127,15 +137,7 @@ namespace SastCSharpTest.Views
                 {
                     if (args.Property == Window.ClientSizeProperty)
                     {
-                        var newSize = window.ClientSize;
-                        if (newSize.Width >= 800)
-                        {
                             ApplyWideLayout(mainGrid);
-                        }
-                        else
-                        {
-                            ApplyNarrowLayout(mainGrid);
-                        }
                     }
                 };
             }
@@ -156,24 +158,6 @@ namespace SastCSharpTest.Views
             {
                 Grid.SetColumn(imageBox, 1);
                 Grid.SetRow(imageBox, 1);
-            }
-        }
-
-        private void ApplyNarrowLayout(Grid grid)
-        {
-            grid.ColumnDefinitions.Clear();
-            grid.ColumnDefinitions.Add(new ColumnDefinition(1, GridUnitType.Star));
-            grid.ColumnDefinitions.Add(new ColumnDefinition(0, GridUnitType.Pixel));
-
-            grid.RowDefinitions.Clear();
-            grid.RowDefinitions.Add(new RowDefinition(1, GridUnitType.Star));
-            grid.RowDefinitions.Add(new RowDefinition(GridLength.Auto));
-
-            var imageBox = this.FindControl<Image>("ImageBox");
-            if (imageBox != null)
-            {
-                Grid.SetColumn(imageBox, 0);
-                Grid.SetRow(imageBox, 0);
             }
         }
     }

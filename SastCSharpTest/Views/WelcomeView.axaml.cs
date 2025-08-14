@@ -2,6 +2,8 @@ using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Styling;
 using SastCSharpTest.Services;
+using Avalonia;
+using Avalonia.Threading;
 
 namespace SastCSharpTest.Views
 {
@@ -14,12 +16,11 @@ namespace SastCSharpTest.Views
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            // 页面加载完成后，应用动画样式
-            var animationStyles = Resources["AnimationStyles"] as Styles;
-            if (animationStyles != null)
-            {
-                Styles.Add(animationStyles);
-            }
+                var animationStyles = Resources["AnimationStyles"] as Styles;
+                if (animationStyles != null)
+                {
+                    Styles.Add(animationStyles);
+                }
         }
 
         private void LargeButton_OnClick(object sender, RoutedEventArgs e)

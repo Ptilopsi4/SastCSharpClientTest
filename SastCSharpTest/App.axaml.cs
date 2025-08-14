@@ -25,10 +25,7 @@ namespace SastCSharpTest
                 // More info: https://docs.avaloniaui.net/docs/guides/development-guides/data-validation#manage-validationplugins
                 DisableAvaloniaDataAnnotationValidation();
 
-                var mainWindow = new MainWindow
-                {
-                    DataContext = new MainWindowViewModel(),
-                };
+                var mainWindow = new MainWindow();
                 
                 desktop.MainWindow = mainWindow;
 

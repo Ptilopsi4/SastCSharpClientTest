@@ -70,23 +70,22 @@
             </Setter>
             <Style.Animations>
                 <Animation Duration="0:0:1.1"
-                           Delay="0:0:0.3"
-                           Easing="BackEaseOut"
-                           FillMode="Forward">
+                   Delay="0:0:0.3"
+                   Easing="BackEaseOut"
+                   FillMode="Forward">
                     <KeyFrame Cue="0%">
-                        <Setter Property="Opacity" Value="0" />
                         <Setter Property="(TranslateTransform.X)" Value="3.2" />
                         <Setter Property="(TranslateTransform.Y)" Value="84.8" />
                         <Setter Property="(RotateTransform.Angle)" Value="0" />
                     </KeyFrame>
                     <KeyFrame Cue="30%">
-                        <Setter Property="Opacity" Value="1"/>
-                        <Setter Property="(TranslateTransform.X)" Value="3.2" />
-                        <Setter Property="(TranslateTransform.Y)" Value="84.8" />
-                        <Setter Property="(RotateTransform.Angle)" Value="364.504" />
-                    </KeyFrame>
-                    <KeyFrame Cue="100%">
-                        <Setter Property="(TranslateTransform.X)" Value="0" />
+						<Setter Property="Opacity" Value="1"/>
+						<Setter Property="(TranslateTransform.X)" Value="3.2" />
+						<Setter Property="(TranslateTransform.Y)" Value="84.8" />
+						<Setter Property="(RotateTransform.Angle)" Value="365" />
+					</KeyFrame>
+					<KeyFrame Cue="100%">
+						<Setter Property="(TranslateTransform.X)" Value="0" />
                         <Setter Property="(TranslateTransform.Y)" Value="0" />
                         <Setter Property="(RotateTransform.Angle)" Value="0" />
                     </KeyFrame>
@@ -132,8 +131,9 @@
                 </TransformGroup>
             </Setter>
             <Style.Animations>
-                <Animation Duration="0:0:0.7"
+                <Animation Duration="0:0:0.6"
                            Delay="0:0:0.9"
+						   Easing="CubicEaseOut"
                            FillMode="Forward">
                     <KeyFrame Cue="0%">
                         <Setter Property="Opacity" Value="0" />

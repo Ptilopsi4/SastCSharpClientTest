@@ -65,8 +65,7 @@ public partial class SettingsViewModel : ObservableObject
                     break;
                 case "亚克力":
                     ThemeHelper.SetAcrylicMode();
-                    var textColor = ThemeHelper.IsDarkTheme() ? Colors.White : Colors.Black;
-                    UpdateNavigationButtonStyle(mainWindow, textColor);
+                    UpdateNavigationButtonStyle(mainWindow, Colors.White);
                     break;
             }
 
